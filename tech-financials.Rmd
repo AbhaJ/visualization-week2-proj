@@ -1,0 +1,73 @@
+---
+title: "Tech Financials"
+author: "Abha Jha"
+date: "8/31/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(haven)
+library(psych)
+library(here)
+```
+
+##Reading data
+
+```{r}
+d1 <- haven::read_dta("tech_co_cstat_dta.zip") # This reads a Stata File and comes from Haven package
+
+```
+
+```{r}
+class(d1) #gives the type of data (dataframe)
+```
+
+```{r}
+names(d1) #names all the column names
+```
+
+```{r}
+head(d1) #first 6 rows of the table
+```
+
+```{r}
+tail(d1) #last 6 rows of the table
+```
+
+```{r}
+head(d1, n = 10) #gives top 10 rows of the table
+```
+
+```{r}
+d1[5:10, ] #gives all the rows from 5 to 10 
+```
+
+```{r}
+attributes(d1$gvkey) #lets you know the attribute of that particular column
+```
+
+```{r}
+attributes(d1$datadate)
+```
+
+```{r}
+attributes(d1$datadate)$label # fetches only a particular attribute, here it's label
+```
+
+```{r}
+attributes(d1$datadate)$label <- "Fiscal year end date" #changes the column name
+```
+
+```{r}
+attributes(d1$datadate)$label #datadate name changed to fiscal year end date
+```
+
+
+
+
+
+
+
